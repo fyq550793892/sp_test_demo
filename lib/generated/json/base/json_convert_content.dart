@@ -8,6 +8,7 @@ import 'package:sp_demo/beans/sp_main/message_entity.dart';
 import 'package:sp_demo/beans/sp_main/sp_history_entity.dart';
 import 'package:sp_demo/beans/sp_main/sp_theme_entity.dart';
 import 'package:sp_demo/beans/sp_options_entity.dart';
+import 'package:sp_demo/beans/sp_share_key_entity.dart';
 import 'package:sp_demo/beans/token_entity.dart';
 
 JsonConvert jsonConvert = JsonConvert();
@@ -18,14 +19,19 @@ class JsonConvert {
     (MessageEntity).toString(): MessageEntity.fromJson,
     (SpHistoryEntity).toString(): SpHistoryEntity.fromJson,
     (SpHistoryData).toString(): SpHistoryData.fromJson,
-    (SpHistoryDataRecordsSpHistoryDataRecords).toString(): SpHistoryDataRecordsSpHistoryDataRecords.fromJson,
+    (SpHistoryDataRecordsSpHistoryDataRecords).toString():
+        SpHistoryDataRecordsSpHistoryDataRecords.fromJson,
     (SpThemeEntity).toString(): SpThemeEntity.fromJson,
     (SpThemeData).toString(): SpThemeData.fromJson,
     (SpThemeDataDataList).toString(): SpThemeDataDataList.fromJson,
-    (SpThemeDataDataListThemeInfo).toString(): SpThemeDataDataListThemeInfo.fromJson,
-    (SpThemeDataDataListThemeInfoIntroduce).toString(): SpThemeDataDataListThemeInfoIntroduce.fromJson,
+    (SpThemeDataDataListThemeInfo).toString():
+        SpThemeDataDataListThemeInfo.fromJson,
+    (SpThemeDataDataListThemeInfoIntroduce).toString():
+        SpThemeDataDataListThemeInfoIntroduce.fromJson,
     (SpOptionsEntity).toString(): SpOptionsEntity.fromJson,
     (SpOptionsCeceParams).toString(): SpOptionsCeceParams.fromJson,
+    (SpShareKeyEntity).toString(): SpShareKeyEntity.fromJson,
+    (SpShareKeyData).toString(): SpShareKeyData.fromJson,
     (TokenEntity).toString(): TokenEntity.fromJson,
     (TokenData).toString(): TokenData.fromJson,
   };
@@ -107,51 +113,93 @@ class JsonConvert {
   //list is returned by type
   static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
     if (<MessageEntity>[] is M) {
-      return data.map<MessageEntity>((Map<String, dynamic> e) => MessageEntity.fromJson(e)).toList() as M;
+      return data
+          .map<MessageEntity>(
+              (Map<String, dynamic> e) => MessageEntity.fromJson(e))
+          .toList() as M;
     }
     if (<SpHistoryEntity>[] is M) {
-      return data.map<SpHistoryEntity>((Map<String, dynamic> e) => SpHistoryEntity.fromJson(e)).toList() as M;
+      return data
+          .map<SpHistoryEntity>(
+              (Map<String, dynamic> e) => SpHistoryEntity.fromJson(e))
+          .toList() as M;
     }
     if (<SpHistoryData>[] is M) {
-      return data.map<SpHistoryData>((Map<String, dynamic> e) => SpHistoryData.fromJson(e)).toList() as M;
+      return data
+          .map<SpHistoryData>(
+              (Map<String, dynamic> e) => SpHistoryData.fromJson(e))
+          .toList() as M;
     }
     if (<SpHistoryDataRecordsSpHistoryDataRecords>[] is M) {
       return data
           .map<SpHistoryDataRecordsSpHistoryDataRecords>(
-              (Map<String, dynamic> e) => SpHistoryDataRecordsSpHistoryDataRecords.fromJson(e))
+              (Map<String, dynamic> e) =>
+                  SpHistoryDataRecordsSpHistoryDataRecords.fromJson(e))
           .toList() as M;
     }
     if (<SpThemeEntity>[] is M) {
-      return data.map<SpThemeEntity>((Map<String, dynamic> e) => SpThemeEntity.fromJson(e)).toList() as M;
+      return data
+          .map<SpThemeEntity>(
+              (Map<String, dynamic> e) => SpThemeEntity.fromJson(e))
+          .toList() as M;
     }
     if (<SpThemeData>[] is M) {
-      return data.map<SpThemeData>((Map<String, dynamic> e) => SpThemeData.fromJson(e)).toList() as M;
+      return data
+          .map<SpThemeData>((Map<String, dynamic> e) => SpThemeData.fromJson(e))
+          .toList() as M;
     }
     if (<SpThemeDataDataList>[] is M) {
-      return data.map<SpThemeDataDataList>((Map<String, dynamic> e) => SpThemeDataDataList.fromJson(e)).toList() as M;
+      return data
+          .map<SpThemeDataDataList>(
+              (Map<String, dynamic> e) => SpThemeDataDataList.fromJson(e))
+          .toList() as M;
     }
     if (<SpThemeDataDataListThemeInfo>[] is M) {
       return data
-          .map<SpThemeDataDataListThemeInfo>((Map<String, dynamic> e) => SpThemeDataDataListThemeInfo.fromJson(e))
+          .map<SpThemeDataDataListThemeInfo>((Map<String, dynamic> e) =>
+              SpThemeDataDataListThemeInfo.fromJson(e))
           .toList() as M;
     }
     if (<SpThemeDataDataListThemeInfoIntroduce>[] is M) {
       return data
           .map<SpThemeDataDataListThemeInfoIntroduce>(
-              (Map<String, dynamic> e) => SpThemeDataDataListThemeInfoIntroduce.fromJson(e))
+              (Map<String, dynamic> e) =>
+                  SpThemeDataDataListThemeInfoIntroduce.fromJson(e))
           .toList() as M;
     }
     if (<SpOptionsEntity>[] is M) {
-      return data.map<SpOptionsEntity>((Map<String, dynamic> e) => SpOptionsEntity.fromJson(e)).toList() as M;
+      return data
+          .map<SpOptionsEntity>(
+              (Map<String, dynamic> e) => SpOptionsEntity.fromJson(e))
+          .toList() as M;
     }
     if (<SpOptionsCeceParams>[] is M) {
-      return data.map<SpOptionsCeceParams>((Map<String, dynamic> e) => SpOptionsCeceParams.fromJson(e)).toList() as M;
+      return data
+          .map<SpOptionsCeceParams>(
+              (Map<String, dynamic> e) => SpOptionsCeceParams.fromJson(e))
+          .toList() as M;
+    }
+    if (<SpShareKeyEntity>[] is M) {
+      return data
+          .map<SpShareKeyEntity>(
+              (Map<String, dynamic> e) => SpShareKeyEntity.fromJson(e))
+          .toList() as M;
+    }
+    if (<SpShareKeyData>[] is M) {
+      return data
+          .map<SpShareKeyData>(
+              (Map<String, dynamic> e) => SpShareKeyData.fromJson(e))
+          .toList() as M;
     }
     if (<TokenEntity>[] is M) {
-      return data.map<TokenEntity>((Map<String, dynamic> e) => TokenEntity.fromJson(e)).toList() as M;
+      return data
+          .map<TokenEntity>((Map<String, dynamic> e) => TokenEntity.fromJson(e))
+          .toList() as M;
     }
     if (<TokenData>[] is M) {
-      return data.map<TokenData>((Map<String, dynamic> e) => TokenData.fromJson(e)).toList() as M;
+      return data
+          .map<TokenData>((Map<String, dynamic> e) => TokenData.fromJson(e))
+          .toList() as M;
     }
 
     debugPrint("${M.toString()} not found");
@@ -161,7 +209,8 @@ class JsonConvert {
 
   static M? fromJsonAsT<M>(dynamic json) {
     if (json is List) {
-      return _getListChildType<M>(json.map((e) => e as Map<String, dynamic>).toList());
+      return _getListChildType<M>(
+          json.map((e) => e as Map<String, dynamic>).toList());
     } else {
       return jsonConvert.asT<M>(json);
     }

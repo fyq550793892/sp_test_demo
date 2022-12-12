@@ -80,7 +80,8 @@ class SpSetPage extends StatelessWidget {
                 Get.toNamed(RouteConfig.spMainPage, arguments: {
                   "controller": state.sp3dController,
                   "data": DemoStringUtil.StringUtil.handleData(
-                      path: "/fortune_island?fortune_data=m_59_47_63_69", isXydPage: true),
+                      path: "/fortune_island?fortune_data=m_59_47_63_69",
+                      isXydPage: true),
                 });
               },
               child: Text("进入星运岛"),
@@ -247,8 +248,8 @@ class SpSetPage extends StatelessWidget {
   }
 
   // 分享页widget
-  Widget _shareChildWidget(
-      String sPName, Uint8List bytes, List<String> spUnscrambleItems, int spType, String userName) {
+  Widget _shareChildWidget(String sPName, Uint8List bytes,
+      List<String> spUnscrambleItems, int spType, String userName) {
     /// @Author fanyuqing
     /// @Description 分享页widget
     /// @Param [spTitle-沙盘标题, isMainSP-是不是主沙盘, sPName-沙盘名, bytes-截图byte, spUnscrambleItems-标签列表]
@@ -275,7 +276,10 @@ class SpSetPage extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 11.w),
                     child: Text(
                       "$userName的",
-                      style: TextStyle(fontSize: 16.w, color: ColorsUtil.spTextColor, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: 16.w,
+                          color: ColorsUtil.spTextColor,
+                          fontWeight: FontWeight.w600),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -406,7 +410,9 @@ class SpSetPage extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           runSpacing: 12.w,
           spacing: 6.w,
-          children: spUnscrambleItems.take(spUnscrambleItems.length).map<Widget>((String tag) {
+          children: spUnscrambleItems
+              .take(spUnscrambleItems.length)
+              .map<Widget>((String tag) {
             return Container(
               height: 32.w,
               padding: EdgeInsets.only(
@@ -476,6 +482,9 @@ class DropdownButtonDemoPage extends StatefulWidget {
 class _DropdownButtonDemoPageState extends State<DropdownButtonDemoPage> {
   var selectItemValue = 'stfff597525aee6dbf260a58a42d';
 
+  final logic = Get.find<SpSetLogic>();
+  final state = Get.find<SpSetLogic>().state;
+
   List<DropdownMenuItem<String>> generateItemList() {
     final List<DropdownMenuItem<String>> items = [];
     final DropdownMenuItem<String> item1 = DropdownMenuItem(
@@ -486,9 +495,15 @@ class _DropdownButtonDemoPageState extends State<DropdownButtonDemoPage> {
       child: Text('user2'),
       value: 'user2',
     );
+    final DropdownMenuItem<String> item3 = DropdownMenuItem(
+      child: Text('anchor'),
+      value: 'anchor',
+    );
 
     items.add(item1);
     items.add(item2);
+    items.add(item3);
+
     return items;
   }
 
@@ -525,6 +540,10 @@ class _DropdownButtonDemoPageState extends State<DropdownButtonDemoPage> {
     Map<String, dynamic> params = Map();
     params['secret'] = WholeData().secretKey;
     params['user_id'] = WholeData().userId;
+    params['is_cece_master'] = selectItemValue == "anchor" ? true : false;
+    if (selectItemValue == "anchor") {
+      logic.changeUserForAnchor(true);
+    }
     var result = await SpMainApis.getToken(params: params);
     WholeData().tokenData = TokenData.fromJson(result['data']);
     setState(() {});

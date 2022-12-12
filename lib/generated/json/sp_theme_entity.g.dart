@@ -28,7 +28,8 @@ Map<String, dynamic> $SpThemeEntityToJson(SpThemeEntity entity) {
 
 SpThemeData $SpThemeDataFromJson(Map<String, dynamic> json) {
   final SpThemeData spThemeData = SpThemeData();
-  final List<SpThemeDataDataList>? dataList = jsonConvert.convertListNotNull<SpThemeDataDataList>(json['data_list']);
+  final List<SpThemeDataDataList>? dataList =
+      jsonConvert.convertListNotNull<SpThemeDataDataList>(json['data_list']);
   if (dataList != null) {
     spThemeData.dataList = dataList;
   }
@@ -63,7 +64,8 @@ SpThemeDataDataList $SpThemeDataDataListFromJson(Map<String, dynamic> json) {
   if (recordsCount != null) {
     spThemeDataDataList.recordsCount = recordsCount;
   }
-  final SpThemeDataDataListThemeInfo? themeInfo = jsonConvert.convert<SpThemeDataDataListThemeInfo>(json['theme_info']);
+  final SpThemeDataDataListThemeInfo? themeInfo =
+      jsonConvert.convert<SpThemeDataDataListThemeInfo>(json['theme_info']);
   if (themeInfo != null) {
     spThemeDataDataList.themeInfo = themeInfo;
   }
@@ -81,8 +83,10 @@ Map<String, dynamic> $SpThemeDataDataListToJson(SpThemeDataDataList entity) {
   return data;
 }
 
-SpThemeDataDataListThemeInfo $SpThemeDataDataListThemeInfoFromJson(Map<String, dynamic> json) {
-  final SpThemeDataDataListThemeInfo spThemeDataDataListThemeInfo = SpThemeDataDataListThemeInfo();
+SpThemeDataDataListThemeInfo $SpThemeDataDataListThemeInfoFromJson(
+    Map<String, dynamic> json) {
+  final SpThemeDataDataListThemeInfo spThemeDataDataListThemeInfo =
+      SpThemeDataDataListThemeInfo();
   final int? id = jsonConvert.convert<int>(json['id']);
   if (id != null) {
     spThemeDataDataListThemeInfo.id = id;
@@ -92,14 +96,16 @@ SpThemeDataDataListThemeInfo $SpThemeDataDataListThemeInfoFromJson(Map<String, d
     spThemeDataDataListThemeInfo.name = name;
   }
   final List<SpThemeDataDataListThemeInfoIntroduce>? introduce =
-      jsonConvert.convertListNotNull<SpThemeDataDataListThemeInfoIntroduce>(json['introduce']);
+      jsonConvert.convertListNotNull<SpThemeDataDataListThemeInfoIntroduce>(
+          json['introduce']);
   if (introduce != null) {
     spThemeDataDataListThemeInfo.introduce = introduce;
   }
   return spThemeDataDataListThemeInfo;
 }
 
-Map<String, dynamic> $SpThemeDataDataListThemeInfoToJson(SpThemeDataDataListThemeInfo entity) {
+Map<String, dynamic> $SpThemeDataDataListThemeInfoToJson(
+    SpThemeDataDataListThemeInfo entity) {
   final Map<String, dynamic> data = <String, dynamic>{};
   data['id'] = entity.id;
   data['name'] = entity.name;
@@ -107,8 +113,10 @@ Map<String, dynamic> $SpThemeDataDataListThemeInfoToJson(SpThemeDataDataListThem
   return data;
 }
 
-SpThemeDataDataListThemeInfoIntroduce $SpThemeDataDataListThemeInfoIntroduceFromJson(Map<String, dynamic> json) {
-  final SpThemeDataDataListThemeInfoIntroduce spThemeDataDataListThemeInfoIntroduce =
+SpThemeDataDataListThemeInfoIntroduce
+    $SpThemeDataDataListThemeInfoIntroduceFromJson(Map<String, dynamic> json) {
+  final SpThemeDataDataListThemeInfoIntroduce
+      spThemeDataDataListThemeInfoIntroduce =
       SpThemeDataDataListThemeInfoIntroduce();
   final String? title = jsonConvert.convert<String>(json['title']);
   if (title != null) {
@@ -121,7 +129,8 @@ SpThemeDataDataListThemeInfoIntroduce $SpThemeDataDataListThemeInfoIntroduceFrom
   return spThemeDataDataListThemeInfoIntroduce;
 }
 
-Map<String, dynamic> $SpThemeDataDataListThemeInfoIntroduceToJson(SpThemeDataDataListThemeInfoIntroduce entity) {
+Map<String, dynamic> $SpThemeDataDataListThemeInfoIntroduceToJson(
+    SpThemeDataDataListThemeInfoIntroduce entity) {
   final Map<String, dynamic> data = <String, dynamic>{};
   data['title'] = entity.title;
   data['content'] = entity.content;

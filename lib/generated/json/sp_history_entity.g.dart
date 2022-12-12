@@ -28,7 +28,8 @@ Map<String, dynamic> $SpHistoryEntityToJson(SpHistoryEntity entity) {
 
 SpHistoryData $SpHistoryDataFromJson(Map<String, dynamic> json) {
   final SpHistoryData spHistoryData = SpHistoryData();
-  final List<List>? records = jsonConvert.convertListNotNull<List>(json['records']);
+  final List<List>? records =
+      jsonConvert.convertListNotNull<List>(json['records']);
   if (records != null) {
     spHistoryData.records = records;
   }
@@ -41,8 +42,11 @@ Map<String, dynamic> $SpHistoryDataToJson(SpHistoryData entity) {
   return data;
 }
 
-SpHistoryDataRecordsSpHistoryDataRecords $SpHistoryDataRecordsSpHistoryDataRecordsFromJson(Map<String, dynamic> json) {
-  final SpHistoryDataRecordsSpHistoryDataRecords spHistoryDataRecordsSpHistoryDataRecords =
+SpHistoryDataRecordsSpHistoryDataRecords
+    $SpHistoryDataRecordsSpHistoryDataRecordsFromJson(
+        Map<String, dynamic> json) {
+  final SpHistoryDataRecordsSpHistoryDataRecords
+      spHistoryDataRecordsSpHistoryDataRecords =
       SpHistoryDataRecordsSpHistoryDataRecords();
   final String? id = jsonConvert.convert<String>(json['id']);
   if (id != null) {
@@ -84,15 +88,18 @@ SpHistoryDataRecordsSpHistoryDataRecords $SpHistoryDataRecordsSpHistoryDataRecor
   if (weatherName != null) {
     spHistoryDataRecordsSpHistoryDataRecords.weatherName = weatherName;
   }
-  final String? lastCameraPosition = jsonConvert.convert<String>(json['last_camera_position']);
+  final String? lastCameraPosition =
+      jsonConvert.convert<String>(json['last_camera_position']);
   if (lastCameraPosition != null) {
-    spHistoryDataRecordsSpHistoryDataRecords.lastCameraPosition = lastCameraPosition;
+    spHistoryDataRecordsSpHistoryDataRecords.lastCameraPosition =
+        lastCameraPosition;
   }
   final String? note = jsonConvert.convert<String>(json['note']);
   if (note != null) {
     spHistoryDataRecordsSpHistoryDataRecords.note = note;
   }
-  final bool? isConsultInLive = jsonConvert.convert<bool>(json['is_consult_in_live']);
+  final bool? isConsultInLive =
+      jsonConvert.convert<bool>(json['is_consult_in_live']);
   if (isConsultInLive != null) {
     spHistoryDataRecordsSpHistoryDataRecords.isConsultInLive = isConsultInLive;
   }
@@ -103,7 +110,8 @@ SpHistoryDataRecordsSpHistoryDataRecords $SpHistoryDataRecordsSpHistoryDataRecor
   return spHistoryDataRecordsSpHistoryDataRecords;
 }
 
-Map<String, dynamic> $SpHistoryDataRecordsSpHistoryDataRecordsToJson(SpHistoryDataRecordsSpHistoryDataRecords entity) {
+Map<String, dynamic> $SpHistoryDataRecordsSpHistoryDataRecordsToJson(
+    SpHistoryDataRecordsSpHistoryDataRecords entity) {
   final Map<String, dynamic> data = <String, dynamic>{};
   data['id'] = entity.id;
   data['title'] = entity.title;

@@ -30,7 +30,9 @@ dependencies:
   fluttertoast: ^8.0.9
 
   cece_sp_module:
-    path: cece_sp_module
+    git:
+      url: https://git.xxwolo.com/flutter/cece_sp_module.git
+      ref: dev_f2
 
   dio: ^4.0.6
 

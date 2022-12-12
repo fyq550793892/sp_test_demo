@@ -1,9 +1,10 @@
 import 'package:cece_sp_module/sp_3d_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sp_demo/net/apis.dart';
 import 'package:sp_demo/routes/route_config.dart';
+import 'package:sp_demo/utils/sq_toast.dart';
 import 'package:sp_demo/utils/string_util.dart';
 
 import 'theme_list_logic.dart';
@@ -41,8 +42,16 @@ class ThemeListPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("获取的直播的key为:"),
-              ElevatedButton(onPressed: () {}, child: Text("复制")),
+              Expanded(
+                  child: Text("获取的直播的key为:${state.spShareKeyData?.shareKey}")),
+              ElevatedButton(
+                onPressed: () {
+                  Clipboard.setData(
+                      ClipboardData(text: state.spShareKeyData?.shareKey));
+                  SQToast.show("复制成功");
+                },
+                child: Text("复制"),
+              ),
             ],
           ),
           Expanded(
@@ -54,6 +63,7 @@ class ThemeListPage extends StatelessWidget {
                   title: state.spThemeData?.dataList![index].themeInfo?.name ??
                       "未命名",
                   idNum: state.spThemeData?.dataList![index].themeInfo?.id ?? 0,
+                  recodeId: state.spThemeData?.dataList![index].recordId ?? "0",
                 );
               },
               itemCount: state.spThemeData?.dataList!.length,
@@ -68,6 +78,7 @@ class ThemeListPage extends StatelessWidget {
     BuildContext context, {
     required String title,
     required int idNum,
+    required String recodeId,
   }) {
     return Padding(
       padding: EdgeInsets.only(top: 20.w),
@@ -107,21 +118,25 @@ class ThemeListPage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              SpMainApis.postReport(params: {"aa": "bb"});
-              // String path = "/sha_pan/record_list?theme_id=$idNum&from=";
-              // Get.toNamed(
-              //   RouteConfig.spMainPage,
-              //   arguments: {
-              //     "data": StringUtil.handleData(path: path),
-              //     "controller": Sp3DController(),
-              //   },
-              // );
-              // Get.toNamed(RouteConfig.recordListPage, arguments: idNum);
+              _getKey(recodeId, idNum);
             },
             child: Text("直播授权key"),
           ),
         ],
       ),
     );
+  }
+
+  void _getKey(String recodeId, int idNum) {
+    logic.getShareKey(recodeId, idNum);
+    // String path =
+    //     "/group_sandplay/consult?from=home&role=role_0&share_key=${state.spShareKeyData?.shareKey}";
+    // Get.toNamed(
+    //   RouteConfig.spMainPage,
+    //   arguments: {
+    //     "data": StringUtil.handleData(path: path),
+    //     "controller": Sp3DController(),
+    //   },
+    // );
   }
 }
