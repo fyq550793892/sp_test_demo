@@ -1,0 +1,72 @@
+name: sp_demo
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  # 屏幕适配
+  flutter_screenutil: ^5.5.3+2
+
+  # get
+  get: ^4.6.5
+
+  flutter_easyloading: ^3.0.5
+
+  fluttertoast: ^8.0.9
+
+  cece_sp_module:
+    path: cece_sp_module
+
+  dio: ^4.0.6
+
+  fk_user_agent: ^2.0.1
+
+  dio_http_cache: 0.3.0
+
+  #打印相关
+  r_logger: ^0.2.4
+
+  package_info_plus: ^1.4.2
+
+  crypto: ^3.0.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+dependency_overrides:
+  device_info:
+    git:
+      url: https://git.xxwolo.com/ruiheng/cece_device_info.git
+      ref: dev_f2
+
+  flutter_unity_widget:
+    git:
+      url: https://git.xxwolo.com/flutter/cece_flutter_unity_widget.git
+
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+#  assets:
+#    - assets/images/3.0x/
+
