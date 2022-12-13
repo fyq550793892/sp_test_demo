@@ -120,8 +120,8 @@ class Services {
     return dio
         ?.post(
           path,
-          // data: data,
-          queryParameters: data,
+          data: data,
+          // queryParameters: data,
           options: requestOptions,
         )
         .then((MRespons.Response value) => value.data)
