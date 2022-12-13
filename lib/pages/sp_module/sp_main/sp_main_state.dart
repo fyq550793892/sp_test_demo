@@ -7,8 +7,8 @@ class SpMainState {
   SpMainState() {
     initText = """{
     "autoMonitor":0,
-    "openReturnGesture":"true",
-    "onQuit":"true"
+    "openReturnGesture":true",
+    "onQuit":false
   }""";
     controller = TextEditingController(text: initText);
 

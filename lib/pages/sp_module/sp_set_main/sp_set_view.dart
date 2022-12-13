@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:sp_demo/beans/token_entity.dart';
 import 'package:sp_demo/net/apis.dart';
 import 'package:sp_demo/routes/route_config.dart';
+import 'package:sp_demo/utils/sq_toast.dart';
 import 'package:sp_demo/utils/string_util.dart' as DemoStringUtil;
 import 'package:sp_demo/whole/whole_data.dart';
 
@@ -175,6 +176,10 @@ class SpSetPage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
+                          if (state.textEditingController.text.isEmpty) {
+                            SQToast.show("share_key不能为空");
+                            return;
+                          }
                           String path =
                               "/sha_pan/playbox?record_id=&share_key=${state.textEditingController.text}&from=";
                           toDefaultMain(path: path);
@@ -183,16 +188,24 @@ class SpSetPage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          if (state.textEditingController.text.isEmpty) {
+                            SQToast.show("share_key不能为空");
+                            return;
+                          }
                           String path =
-                              "/sha_pan/playbox?share_key=${state.textEditingController.text}&mode=text_consulting&exit=fast";
+                              "/sha_pan/playbox?from=text_consulting&share_key=${state.textEditingController.text}&mode=text_consulting&exit=fast";
                           toDefaultMain(path: path);
                         },
                         child: Text("文字咨询-自己"),
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          if (state.textEditingController.text.isEmpty) {
+                            SQToast.show("share_key不能为空");
+                            return;
+                          }
                           String path =
-                              "/sha_pan/playbox?mode=text_consulting_psychologist&share_key=${state.textEditingController.text}&exit=fast";
+                              "/sha_pan/playbox?from=text_psychologist&mode=text_consulting_psychologist&share_key=${state.textEditingController.text}&exit=fast";
                           toDefaultMain(path: path);
                         },
                         child: Text("文字咨询-咨询师"),
